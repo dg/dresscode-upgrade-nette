@@ -56,6 +56,7 @@ class SignUpFormFactory
 
 		if ($input->filled && !$button->submittedBy) {
 			$input->setOmitted(value: false);
+			$input->setDisabled(value: true);
 		}
 
 		$input->omitted = true;
@@ -68,6 +69,9 @@ class SignUpFormFactory
 		$choice->checkAllowedValues = false;
 		$country->addOptionAttributes(['data-flag' => true]);
 		$tags->addOptionAttributes(['data-color' => 'red']);
+		$country->setDisabled(value: ['cz']);
+		$tags->setDisabled(value: true);
+		$choice->setDisabled(value: false);
 		$email->setType('email');
 		$terms->getSeparatorPrototype()->class = 'checkbox';
 		return [$country->selectedItem, $tags->selectedItems];
@@ -110,6 +114,16 @@ class DateInput extends BaseControl
 	public function setUp(): void
 	{
 		BaseControl::enableAutoOptionalMode();
+		$this->setDisabled(value: true);
+	}
+}
+
+
+class CountrySelect extends SelectBox
+{
+	public function setUp(): void
+	{
+		$this->setDisabled(value: ['cz']);
 	}
 }
 

@@ -1,5 +1,11 @@
 package: nette/forms
 
+since 3.3.1:
+	replacedCalls:
+		'Nette\Forms\Controls\BaseControl::setDisabled(value: $state, ...)': 'setDisabled(state: $state, ...)'
+		'Nette\Forms\Controls\ChoiceControl::setDisabled(value: $state, ...)': 'setDisabled(state: $state, ...)'
+		'Nette\Forms\Controls\MultiChoiceControl::setDisabled(value: $state, ...)': 'setDisabled(state: $state, ...)'
+
 since 3.3:
 	replacedMembers:
 		Nette\Bridges\FormsLatte\FormMacros::renderFormBegin: keep
